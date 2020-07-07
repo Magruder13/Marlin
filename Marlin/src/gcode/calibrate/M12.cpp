@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -28,12 +28,9 @@
 #include "../../feature/closedloop.h"
 
 void GcodeSuite::M12() {
-
   planner.synchronize();
-
   if (parser.seenval('S'))
-    closedloop.set(parser.value_int()); // Force a CLC set
-
+    set_closedloop(parser.value_int()); // Force a CLC set
 }
 
 #endif
